@@ -1,0 +1,92 @@
+<html>
+    <head>
+       <title>My todolist</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+       <script src="https://kit.fontawesome.com/2006b14866.js" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="/css/home.css">
+    </head>
+    
+    <body>
+        <h1>My Todo List</h1>
+       
+        <!-- form for taking input -->
+        <form id="form1" action="/create-todo" method="POST">            
+            <div class = "div1">
+            <label for="description">DESCRIPTION</label>
+            <textarea name="description" id = "description" style="width:100%;" placeholder="Enter todo" required></textarea>
+           </div>
+          
+            
+           <div style="display: flex;">
+            <div class = "div2">
+                <label for="category">CATEGORY</label><br>
+                <select name="category" id = "category">
+                    <option value="Choose a category" disabled>Choose a category</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="College">College</option>
+                    <option value="Home">Home</option>
+                    <option value="Home">Other</option>
+                  </select>
+               </div>
+               <div class = "div2">
+                <label for="duedate">DUE DATE</label><br>
+                <input type="date" name="duedate" id = "duedate" placeholder = "dd/mm/yyyy" required>
+               </div>
+           </div>
+            
+
+           <div class = "div1 buttons">
+            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-plus"></i> Add Task</button>
+            <button type="submit" form="myform" class="btn btn-danger btn-lg"><i class="fas fa-trash-alt"></i> Delete Task</button>
+           </div>
+        </form>
+
+        <div class = "outer-div">
+
+            <!-- printing todos and deleting them -->
+            <form id = "myform" action="/delete-todo" method="POST">
+                <h1>Todos</h1>
+                <% for (let i of todo_list) { %> 
+                    
+                   <div class="todo"> 
+                        <input type="checkbox" name="id" value= "<%= i._id %>">
+                            <p class="inline"><%= i.description %></p>
+
+                            
+                                <% if(i.category == "Personal") { %>
+                                    <div class="category personal">
+                                       <p class="inline"><%= i.category %></p>
+                                    </div>
+                                <% } else if(i.category == "Work") { %>
+                                    <div class="category work">
+                                       <p class="inline"><%= i.category %></p>
+                                    </div>
+                                <% } else if(i.category == "College") { %>
+                                        <div class="category college">
+                                           <p class="inline"><%= i.category %></p>
+                                        </div>
+                                <% } else if(i.category == "Home") { %>
+                                            <div class="category home">
+                                               <p class="inline"><%= i.category %></p>
+                                            </div>
+                                <% } else { %>
+                                    <div class="category">
+                                       <p class="inline"><%= i.category %></p>
+                                    </div>
+                                <% } %>
+                           
+                            <br>
+                            <p> &nbsp;&nbsp;&nbsp;&nbsp;<i class="far fa-calendar-alt"></i> <%= i.duedate %></p>
+                           
+                        
+                    </div>
+                    <div class="delete-button">
+                       
+                    </div>
+                    <hr>
+                <% } %>
+            </form>
+        </div>
+    </body>
+</html>

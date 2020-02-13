@@ -1,0 +1,110 @@
+body {
+   margin: 0px;
+   background-image: linear-gradient(to top right, #f0d681, #ca9126) ;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* form */
+#form1 {
+    margin: auto;
+    width: 60%;
+    background-color: aliceblue;
+}
+
+.div1 {
+    height:120px;
+    width: auto;
+    padding: 20px;
+    border: 2px solid #a8aeb3;
+}
+
+.div2 {
+    display: inline-block;
+    height:100px;
+    width: 50%;
+    padding: 20px;
+    border: 2px solid #a8aeb3;
+}
+
+.buttons {
+    padding-left: 35.5%;
+    padding-top: 25px;
+}
+
+h1 {
+    margin: 40px;
+    font-weight: bold;
+}
+
+.outer-div {
+    margin: 60px auto;
+    width: 60%;
+    /* background-color: #7587bd; */
+}
+
+.todo {
+    padding: 30px;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+/* form 2 */
+
+.inline {
+    display: inline-block;
+}
+
+.category {
+    height: 40px;
+    width: 100px;
+    padding: 6px 10px;
+    background: white;
+    float: right;
+}
+
+.personal {
+    background-color: #c977a7;
+}
+
+.work {
+    background-color: #6e9cc4;
+}
+
+.college {
+    background-color: #e3895f;
+}
+
+.home {
+    background-color: #b17cc4;
+}
+
+#myform {
+    margin: 40px 50px;
+    width: 90%
+}
+
+p {
+    font-size: 20px;
+}
+
+input, textarea, select {
+    padding: 3px;
+}
+
+input[type=checkbox] {
+    width: 30px;
+    height: 15px;
+}
+
+select, input[type=date] {
+    width: 60%;
+}
